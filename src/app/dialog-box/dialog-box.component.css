@@ -1,5 +1,5 @@
 .textarea{
-    height: 300px;
+    height: 400px;
     width: 800px;
 }
 form{
@@ -35,6 +35,13 @@ table {
      margin: auto;
     display: block;
       margin-top: 10px;
+  }
+
+  .closebtn{
+    margin: auto;
+    display: flex; 
+    right: -390px;
+    margin: 7px; 
   }
   .nextBtn{
       float: right;

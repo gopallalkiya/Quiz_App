@@ -9,7 +9,7 @@
     <button mat-button (click)="doAction()">{{action}}</button>
     <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
 </div> -->
-
+<h2>Question Update</h2>
 <form [formGroup]="queForm">
     <ng-template matStepLabel>Add Questions</ng-template>
     <mat-form-field appearance="fill" class="questionInput">
@@ -31,4 +31,5 @@
     </div>
     <button mat-flat-button color="primary" (click)="doAction()" class="createBtn">Update
         Question</button>
+    <button mat-button (click)="closeDialog()" class="closebtn" mat-flat-button color="warn">Cancel</button>
 </form>

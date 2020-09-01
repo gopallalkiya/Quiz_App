@@ -1,0 +1,37 @@
+Setup Database :
+
+	mongod --port 27017 --dbpath /data/dsent-designs
+
+Open another terminal :
+
+	mongo --port 27017
+
+	use dsent-designs
+
+	db.createUser({
+		user : "dsent_admin",
+		pwd : "Azim@1997",
+		roles : ["readWrite","dbAdmin"]
+	});
+
+
+Start Server :
+
+	mongod --auth --port 27017 --dbpath /data/dsent-designs
+
+Login to shell :
+
+	mongo --port 27017 -u "dsent_admin" -p "Azim@1997" --authenticationDatabase "dsent-designs"
+
+	use dsent-designs
+
+	db.auth("dsent_admin", "Azim@1997")
+
+
+mongo --port 27017 -u "admin" -p "Password" --authenticationDatabase "admin"
+
+	
+
+	
+
+	

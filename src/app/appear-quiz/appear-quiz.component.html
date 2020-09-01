@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="appearSection">
+    <div [formGroup]="quizIdform">
+        <mat-form-field appearance="fill">
+            <mat-label>Select Quiz Id</mat-label>
+            <mat-select formControlName="quiz_id" (change)="changeQuiz($event)">
+                <mat-option *ngFor="let quiz of Quizes" [value]="quiz">
+                    {{quiz.quiz_id}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="GetQuizById()" class="startQuiz">Start Quiz</button>
+    </div>
+
+
+
+    <form [formGroup]="SubmitForm">
+
+        <div formArrayName="questions">
+            <div *ngFor="let que of SubmitForm.get('questions').controls; let i = index" style="text-align:center">
+                <p>
+                    {{que.value.question}}
+                </p>
+                <div [formGroupName]="i">
+                    <mat-radio-group aria-label="Select an option">
+
+                        <div *ngFor="let opt of que.value.options">
+
+                            <input type="radio" formControlName="answer" value="{{opt}}">{{opt}}
+
+                        </div>
+
+                    </mat-radio-group>
+                    <img src="http://localhost:3000/{{que.value.media.link}}" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <button mat-flat-button color="warn" (click)="onsubmit()" class="submitquiz">Submit Quiz</button>
+    </form>
+</div>

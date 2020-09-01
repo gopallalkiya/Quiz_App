@@ -1,0 +1,50 @@
+.textarea{
+    height: 300px;
+    width: 800px;
+}
+form{
+    padding: 20px 0;
+}
+.mat-card{
+    width:calc(100% - 200px);
+    margin:auto;
+    display: block;
+}
+.mat-form-field{
+    margin-right: 10px;
+   
+}
+
+table {
+    width: 100%;
+  }
+  .questionInput{
+      width: 100%;
+  }
+  .example-box{
+      display: flex;
+      border: 1px solid rgba(0, 0, 0, 0.24);
+      padding: 10px;
+      margin: 10px 0;
+  }
+  .example-box input{
+      margin-right: 10px;
+  }
+  
+  .createBtn{
+     margin: auto;
+    display: block;
+      margin-top: 10px;
+  }
+  .nextBtn{
+      float: right;
+      position: relative;
+      top: -40px;
+  }
+  .quizForm  .mat-form-field{
+    width: 31%;
+    
+  }
+  .quizForm .nxtButton{
+   float: right;
+  }

@@ -1,0 +1,23 @@
+<section class="loginPage">
+    <form class="example-form" [formGroup]="signinForm" (ngSubmit)="loginUser()">
+        <mat-card>
+            <mat-card-title>
+                Sign In
+            </mat-card-title>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" class="form-control" formControlName="email_id" placeholder="Enter email"
+                    required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" class="form-control" formControlName="password" placeholder="Password">
+            </mat-form-field>
+            <div class="button">
+                <button mat-raised-button color="primary" type="submit">Login</button>
+            </div>
+
+        </mat-card>
+    </form>
+</section>

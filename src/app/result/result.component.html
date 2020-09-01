@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<mat-table #Table [dataSource]="MyDataSource">
+
+    <!-- For ID -->
+    <ng-container matColumnDef="quiz_id">
+        <mat-header-cell *matHeaderCellDef> Quiz ID </mat-header-cell>
+        <mat-cell *matCellDef="let post"> {{post.quiz_id}} </mat-cell>
+    </ng-container>
+
+    <!-- For User ID -->
+    <ng-container matColumnDef="total_questions">
+        <mat-header-cell *matHeaderCellDef> Total Questions </mat-header-cell>
+        <mat-cell *matCellDef="let post"> {{post.total_questions}} </mat-cell>
+    </ng-container>
+
+    <!-- For Title -->
+    <ng-container matColumnDef="total_correct">
+        <mat-header-cell *matHeaderCellDef> Correct Questions </mat-header-cell>
+        <mat-cell *matCellDef="let post"> {{post.total_correct}} </mat-cell>
+    </ng-container>
+
+    <!-- For Body -->
+    <ng-container matColumnDef="result">
+        <mat-header-cell *matHeaderCellDef> Results </mat-header-cell>
+        <mat-cell *matCellDef="let post"> {{post.result}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

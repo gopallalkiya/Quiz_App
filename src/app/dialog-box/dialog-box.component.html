@@ -1,0 +1,34 @@
+<!-- <h1 mat-dialog-title>Update Question</h1>
+<div mat-dialog-content>
+    <mat-form-field class="textarea" *ngIf="action != 'Delete'; else elseTemplate">
+        <textarea placeholder="Question" matInput [(ngModel)]="local_data.question"></textarea>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div> -->
+
+<form [formGroup]="queForm">
+    <ng-template matStepLabel>Add Questions</ng-template>
+    <mat-form-field appearance="fill" class="questionInput">
+        <mat-label>Question</mat-label>
+        <textarea [disabled]="true" matInput formControlName="question"></textarea>
+    </mat-form-field>
+    <br>
+
+    <!-- <mat-radio-button name="answer" value="{{options[i]}}" formControlName="answer">
+    </mat-radio-button> -->
+    <div formArrayName="options">
+        <div class="example-box" *ngFor="let option of queForm.get('options').controls; let i = index">{{i+1}}
+            <input type="radio" name="answer" [formControl]="queForm.get('answer')"
+                [value]="queForm.get('options').controls[i].value">
+            <input matInput [formControl]="queForm.get('options').controls[i]" [name]="i" placeholder="Enter Option">
+
+        </div>
+        <button (click)="addElement()" mat-flat-button color="warn">Add Option</button>
+    </div>
+    <button mat-flat-button color="primary" (click)="doAction()" class="createBtn">Update
+        Question</button>
+</form>

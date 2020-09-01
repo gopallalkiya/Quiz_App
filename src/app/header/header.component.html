@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <h1>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" class="loggo">home</mat-icon>Quiz App
+        </h1>
+        <span class="menu-spacer"></span>
+        <div class="nav">
+            <a mat-button [routerLink]="'/profile'"> Home </a>
+            <a mat-button [routerLink]="'/create-question'"> Create Quiz</a>
+            <a mat-button [routerLink]="'/edit'"> Edit Quiz</a>
+            <a mat-button [routerLink]="'/appear-quiz'"> Appear Quiz</a>
+            <a mat-button [routerLink]="'/result'"> Result </a>
+        </div>
+        <button (click)="logout()" mat-flat-button color="warn" class="logoutBtn">Logout</button>
+    </mat-toolbar-row>
+</mat-toolbar>

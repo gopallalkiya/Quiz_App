@@ -1,0 +1,110 @@
+<app-header></app-header>
+<mat-horizontal-stepper [linear]="isLinear" #stepper class="quizTabs">
+    <mat-step [stepControl]="firstFormGroup" class="firstTab">
+        <form [formGroup]="angForm">
+            <ng-template matStepLabel>Create Quiz</ng-template>
+            <mat-card class="quizForm">
+                <h2>Create Quiz</h2>
+                <mat-form-field appearance="fill">
+                    <mat-label>Id</mat-label>
+                    <input matInput formControlName="quiz_id">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Quiz Title</mat-label>
+                    <input matInput formControlName="title">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Passing Percentage</mat-label>
+                    <input matInput formControlName="passing_percentage">
+                </mat-form-field>
+
+                <button mat-flat-button color="primary" (click)="AddQuiz()" type="submit" [disabled]="!btnDisabled"
+                    class="createBtn">Create Quiz</button>
+                <button mat-button matStepperNext [disabled]="btnDisabled" class="nxtButton">Next</button>
+                <br>
+            </mat-card>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="queForm">
+            <ng-template matStepLabel>Add Questions</ng-template>
+            <mat-form-field appearance="fill" class="questionInput">
+                <mat-label>Question</mat-label>
+                <textarea [disabled]="true" matInput formControlName="question"></textarea>
+            </mat-form-field>
+            <br>
+
+            <div>
+                <!-- Select File -->
+                <input type="file" accept="file_type  | video/* | image/* " (change)="showPreview($event)" />
+
+                <!-- Image Preview -->
+                <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+                    <img [src]="imageURL">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- <mat-radio-button name="answer" value="{{options[i]}}" formControlName="answer">
+            </mat-radio-button> -->
+            <div formArrayName="options">
+                <div class="example-box" *ngFor="let option of queForm.get('options').controls; let i = index">{{i+1}}
+                    <input type="radio" name="answer" [formControl]="queForm.get('answer')"
+                        [value]="queForm.get('options').controls[i].value">
+                    <input matInput [formControl]="queForm.get('options').controls[i]" [name]="i"
+                        placeholder="Enter Option">
+
+                </div>
+                <button (click)="addElement()" mat-flat-button color="warn">Add Option</button>
+
+            </div>
+
+
+
+            <button mat-flat-button color="primary" (click)="createQuestion()" class="createBtn">Create
+                Question</button>
+            <button matStepperNext mat-flat-button class="nextBtn">Finished</button>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>Quiz Created Successfully.</p>
+        <div>
+            <button (click)="homenavigate()" mat-button>Home</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
+
+<!-- <form>
+    <mat-card class="quizForm">
+        <h2>Create Quiz</h2>
+        <mat-form-field appearance="fill">
+            <mat-label>Quiz Title</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Id</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Passing Percentage</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <button mat-flat-button color="primary">Create Quiz</button>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Question</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <br>
+        
+        <div class="example-box" *ngFor="let movie of movies; let i = index">{{i+1}}
+            <mat-radio-button [(ngModel)]="movies[i]"><input matInput>
+            </mat-radio-button>
+        </div>
+        <button (click)="addElement()" class="btn">Add Option</button>
+    </mat-card>
+</form> -->
